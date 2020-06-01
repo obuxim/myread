@@ -13,7 +13,11 @@ class App extends Component {
         read: []
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.getAllBooks()
+    }
+
+    getAllBooks = async () => {
         const _allBooks = await BooksAPI.getAll()
         const _currentlyReading = _allBooks.filter(book => book.shelf === 'currentlyReading')
         const _wantToRead = _allBooks.filter(book => book.shelf === 'wantToRead')
@@ -27,6 +31,11 @@ class App extends Component {
         console.log("State of App.js: ",this.state)
     }
 
+    update = async (book, shelf) => {
+        await BooksAPI.update(book, shelf)
+        this.getAllBooks()
+    }
+
     render() {
     return(
         <div className="app">
@@ -36,11 +45,12 @@ class App extends Component {
                     currentlyReading={this.state.currentlyReading}
                     wantToRead={this.state.wantToRead}
                     read={this.state.read}
+                    update={this.update}
                 />
             )}
           />
           <Route exact path="/search" render={({history}) => (
-              <Search />
+              <Search update={this.update}/>
           )}
           />
         </div>

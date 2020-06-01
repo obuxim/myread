@@ -8,9 +8,7 @@ class SearchBar extends Component {
 
     searchQuery = (q) => {
         this.setState({query: q})
-        if(q.trim() !== ''){
-            this.props.search(q)
-        }
+        this.props.search(q)
     }
 
     render() {

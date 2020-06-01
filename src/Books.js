@@ -8,7 +8,7 @@ class Books extends Component {
             <div className="container">
                 {console.log("Props of Books.js: ",this.props)}
                 <div className="row">
-                    {this.props.books.map(b => <Book key={b.id} book={b} />)}
+                    {this.props.books.map(b => <Book key={b.id} book={b} update={this.props.update}/>)}
                 </div>
             </div>
         );

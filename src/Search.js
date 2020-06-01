@@ -11,9 +11,13 @@ class Search extends Component {
     }
 
     search = async (q) => {
-        const searchResults = await BooksAPI.search(q)
-        if(Array.isArray(searchResults)){
-            this.setState({hasBooks: true, books: searchResults})
+        if(q.trim() !== ''){
+            const searchResults = await BooksAPI.search(q)
+            if(Array.isArray(searchResults)){
+                this.setState({hasBooks: true, books: searchResults})
+            }else {
+                this.setState({hasBooks: false, books: []})
+            }
         }else {
             this.setState({hasBooks: false, books: []})
         }
@@ -24,7 +28,7 @@ class Search extends Component {
             <div>
                 <SearchHeader />
                 <SearchBar search={this.search}/>
-                {this.state.hasBooks ? <Books books={this.state.books}/> :
+                {this.state.hasBooks ? <Books books={this.state.books} update={this.props.update}/> :
                     <div className="container">
                         <div className="text-center">
                             <h2>No books found!</h2>

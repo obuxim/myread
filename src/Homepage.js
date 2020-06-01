@@ -13,14 +13,17 @@ class Homepage extends Component {
                 <Shelf
                     header="Currently Reading"
                     books={this.props.currentlyReading}
+                    update={this.props.update}
                 />
                 <Shelf
                     header="Want to Read"
                     books={this.props.wantToRead}
+                    update={this.props.update}
                 />
                 <Shelf
                     header="Read"
                     books={this.props.read}
+                    update={this.props.update}
                 />
             </div>
         );
