@@ -50,7 +50,7 @@ class App extends Component {
             )}
           />
           <Route exact path="/search" render={({history}) => (
-              <Search update={this.update}/>
+              <Search allBooks={this.state.allBooks} update={this.update}/>
           )}
           />
         </div>

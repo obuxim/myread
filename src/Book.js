@@ -2,6 +2,15 @@ import React, {Component} from "react";
 
 class Book extends Component {
 
+    state = {
+        shelf: "none"
+    }
+
+    update = (book, shelf) => {
+        this.setState({shelf: shelf})
+        this.props.update(book, shelf)
+    }
+
     render() {
         const { book } = this.props
         return (
@@ -15,8 +24,8 @@ class Book extends Component {
                             <p>Authors: {book.authors.join(", ")}</p> :
                             ''
                         }
-                        <select className="custom-select" value={book.shelf ? book.shelf : ''} onChange={(event => this.props.update(book, event.target.value))}>
-                            <option disabled={true} value="">Add to shelf</option>
+                        <select className="custom-select" value={book.shelf ? book.shelf : this.state.shelf} onChange={(event => this.update(book, event.target.value))}>
+                            <option value="none">None</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
                             <option value="read">Read</option>

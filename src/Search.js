@@ -28,7 +28,7 @@ class Search extends Component {
             <div>
                 <SearchHeader />
                 <SearchBar search={this.search}/>
-                {this.state.hasBooks ? <Books books={this.state.books} update={this.props.update}/> :
+                {this.state.hasBooks ? <Books allBooks={this.props.allBooks} books={this.state.books} update={this.props.update}/> :
                     <div className="container">
                         <div className="text-center">
                             <h2>No books found!</h2>
