@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import ShelfHeader from './ShelfHeader'
-import Books from './Book'
+import Books from './Books'
 
 class Shelf extends Component {
     render() {
         return(
             <div>
-                <ShelfHeader />
-                <Books />
+                {console.log("Props of Shelf.js: ",this.props)}
+                <ShelfHeader header={this.props.header}/>
+                <Books books={this.props.books}/>
             </div>
         )
     }
