@@ -28,7 +28,6 @@ class App extends Component {
             wantToRead: _wantToRead,
             read: _read,
         })
-        console.log("State of App.js: ",this.state)
     }
 
     update = async (book, shelf) => {

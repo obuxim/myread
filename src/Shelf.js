@@ -6,7 +6,6 @@ class Shelf extends Component {
     render() {
         return(
             <div>
-                {console.log("Props of Shelf.js: ",this.props)}
                 <ShelfHeader header={this.props.header}/>
                 <Books books={this.props.books} update={this.props.update}/>
             </div>

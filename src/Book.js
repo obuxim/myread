@@ -15,7 +15,6 @@ class Book extends Component {
         const { book } = this.props
         return (
             <div className="col-4 col-md-3 p-2">
-                {console.log("Props of Book.js: ",this.props)}
                 <div className="card shadow">
                     <img className="card-img-top" src={book.imageLinks ? book.imageLinks.thumbnail : ''} alt={book.title} />
                     <div className="card-body">

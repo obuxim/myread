@@ -7,7 +7,6 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                {console.log("Props of Homepage.js: ",this.props)}
                 <HomeHeader />
                 <div className="my-5"></div>
                 <Shelf
