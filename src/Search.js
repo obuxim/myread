@@ -14,6 +14,7 @@ class Search extends Component {
         if(q.trim() !== ''){
             const searchResults = await BooksAPI.search(q)
             if(Array.isArray(searchResults)){
+                searchResults.map(result => this.props.allBooks.map(b => b.id === result.id ? result.shelf = b.shelf : ''))
                 this.setState({hasBooks: true, books: searchResults})
             }else {
                 this.setState({hasBooks: false, books: []})
